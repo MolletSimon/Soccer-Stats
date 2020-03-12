@@ -1,0 +1,26 @@
+ion-content ion-toolbar {
+  --background: translucent;
+}
+
+.points {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.club {
+  display: flex;
+  align-items: center;
+  margin: 11px;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+}
+
+.logo {
+  margin-left: 10px;
+  margin-right: 10px;
+}

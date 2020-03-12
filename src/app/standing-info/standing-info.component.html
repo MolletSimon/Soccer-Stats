@@ -1,0 +1,58 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button defaultHref="" (click)="closeModal()"></ion-back-button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card class="team">
+        <img src="{{team.team.crestUrl}}" alt="" width="100" class="logo">
+        <ion-card-header>
+            <h1>{{team.team.name}}</h1>
+        </ion-card-header>
+    </ion-card>
+
+    <ion-list>
+        <ion-list-header>Statistiques</ion-list-header>
+        <ion-item>
+            <ion-label>Matchs joués</ion-label>
+            <ion-badge slot="end">{{team.playedGames}}</ion-badge>
+        </ion-item>
+        <ion-item>
+            <ion-label>Victoires</ion-label>
+            <ion-badge color="success" slot="end">{{team.won}}</ion-badge>
+        </ion-item>
+        <ion-item>
+            <ion-label>Nuls</ion-label>
+            <ion-badge color="warning" slot="end">{{team.draw}}</ion-badge>
+        </ion-item>
+        <ion-item>
+            <ion-label>Défaites</ion-label>
+            <ion-badge color="danger" slot="end">{{team.lost}}</ion-badge>
+        </ion-item>
+        <ion-item>
+            <ion-label>Buts pour</ion-label>
+            <ion-badge color="secondary" slot="end">{{team.goalsFor}}</ion-badge>
+        </ion-item>
+        <ion-item>
+            <ion-label>Buts contre</ion-label>
+            <ion-badge color="tertiary" slot="end">{{team.goalsAgainst}}</ion-badge>
+        </ion-item>
+        <ion-item>
+            <ion-label>Différence but</ion-label>
+            <ion-badge color="light" slot="end">{{team.goalDifference}}</ion-badge>
+        </ion-item>
+        <ion-item>
+            <ion-label>Points</ion-label>
+            <ion-badge color="medium" slot="end">{{team.points}}</ion-badge>
+        </ion-item>
+    </ion-list>
+
+    <ion-card>
+        <ion-card-header color="success">
+            <h2>Classement: {{team.position}} </h2>
+        </ion-card-header>
+    </ion-card>
+</ion-content>

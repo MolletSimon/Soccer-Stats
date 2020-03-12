@@ -1,0 +1,57 @@
+<ion-header [translucent]="true">
+    <ion-toolbar>
+        <ion-buttons>
+            <ion-icon name="menu-outline"></ion-icon>
+        </ion-buttons>
+        <ion-title>
+            Classement
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+    <ng-container *ngIf="standing">
+        <ion-list>
+            <ng-container *ngFor="let club of standing">
+                <ion-item *ngIf="club.position < 4" color="success" (click)="showModal(club)">
+                    <ion-label class="item">
+                        <div class="club">
+                            <p>{{club.position}} - </p>
+                            <img src="{{club.team.crestUrl}}" class="logo" alt="logo" width="20">
+                            <p>{{club.team.name}}</p>
+                        </div>
+                        <div class="points">
+                            <p>{{club.points}}pts</p>
+                        </div>
+                    </ion-label>
+                </ion-item>
+
+                <ion-item *ngIf="club.position > 3 && club.position < 18" (click)="showModal(club)">
+                    <ion-label class="item">
+                        <div class="club">
+                            <p>{{club.position}} - </p>
+                            <img src="{{club.team.crestUrl}}" alt="" width="20" style="margin-left: 10px; margin-right: 10px;">
+                            <p>{{club.team.name}}</p>
+                        </div>
+                        <div class="points">
+                            <p>{{club.points}}pts</p>
+                        </div>
+                    </ion-label>
+                </ion-item>
+
+                <ion-item *ngIf="club.position > 17" color="danger" (click)="showModal(club)">
+                    <ion-label class="item">
+                        <div class="club">
+                            <p>{{club.position}} - </p>
+                            <img src="{{club.team.crestUrl}}" alt="" width="20" style="margin-left: 10px; margin-right: 10px;">
+                            <p>{{club.team.name}}</p>
+                        </div>
+                        <div class="points">
+                            <p>{{club.points}}pts</p>
+                        </div>
+                    </ion-label>
+                </ion-item>
+            </ng-container>
+        </ion-list>
+    </ng-container>
+</ion-content>
