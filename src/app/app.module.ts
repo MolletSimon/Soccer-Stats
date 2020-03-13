@@ -10,11 +10,12 @@ import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {HttpClient, HttpClientModule, HttpHandler} from '@angular/common/http';
 import {StandingInfoModule} from './standing-info/standing-info.module';
+import {ScorerInfoModule} from './scorer-info/scorer-info.module';
 
 @NgModule({
     declarations: [AppComponent],
     entryComponents: [],
-    imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, StandingInfoModule],
+    imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, StandingInfoModule, ScorerInfoModule],
     providers: [
         StatusBar,
         SplashScreen,

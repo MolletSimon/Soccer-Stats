@@ -5,6 +5,8 @@ import { TeamsService } from '../services/teams.service';
 import { Team } from '../model/team';
 import { LeagueCode } from '../model/league-code';
 import { LeagueId } from '../model/league-id';
+import {ModalController} from '@ionic/angular';
+import {ScorerInfoComponent} from '../scorer-info/scorer-info.component';
 
 @Component({
     selector: 'app-scorers',
@@ -14,17 +16,28 @@ import { LeagueId } from '../model/league-id';
 export class ScorersPage implements OnInit {
     teams: Team[];
     scorers: Scorer[];
-    constructor(private scorerService: ScorerService, private teamService: TeamsService) {
+    constructor(private scorerService: ScorerService, private teamService: TeamsService, private modalCtrl: ModalController) {
     }
 
     ngOnInit() {
         this.getScorers(LeagueCode.FRANCE1);
     }
 
+    async openModal(scorer: Scorer) {
+        const modal = await this.modalCtrl.create({
+            component: ScorerInfoComponent,
+            componentProps: {
+                'scorer': scorer
+            }
+        });
+
+        await modal.present();
+    }
+
     getScorers(league: string) {
         this.scorerService.getScorers(league).subscribe(scorers => {
             this.scorers = scorers.scorers;
-            this.teamService.getLogosRequest(LeagueId.FRANCE1).subscribe(teams => {
+            this.teamService.getTeams(LeagueId.FRANCE1).subscribe(teams => {
                 this.teams = teams.teams;
                 console.log(scorers);
                 this.scorers.forEach(scorer => {

@@ -8,7 +8,6 @@ import {TeamPosition} from '../model/team-position';
     styleUrls: ['./standing-info.component.scss'],
 })
 export class StandingInfoComponent implements OnInit {
-
     team: TeamPosition;
 
     constructor(private modalCtrl: ModalController, private navParams: NavParams) {
