@@ -2,13 +2,12 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {ApiService} from './api.service';
 import {Observable} from 'rxjs';
+import {TeamList} from '../model/team-list';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TeamsService {
-  logo: string;
-  teams: any[];
   public httpOptions = {
     headers: new HttpHeaders(
         {
@@ -18,11 +17,7 @@ export class TeamsService {
   };
   constructor(private httpClient: HttpClient, private apiService: ApiService) { }
 
-  getLogo(id: number): Observable<any> {
-    return this.httpClient.get<any>(this.apiService.apiUrl + `/teams/${id}`, this.httpOptions);
-  }
-
-  getLogosRequest(idLeague: number): Observable<any> {
-    return this.httpClient.get<any>(this.apiService.apiUrl + `/competitions/${idLeague}/teams`, this.httpOptions);
+  getLogosRequest(idLeague: number): Observable<TeamList> {
+    return this.httpClient.get<TeamList>(this.apiService.apiUrl + `/competitions/${idLeague}/teams`, this.httpOptions);
   }
 }

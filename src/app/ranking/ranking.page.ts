@@ -3,6 +3,7 @@ import {MenuController, ModalController} from '@ionic/angular';
 import {StandingService} from '../services/standing.service';
 import {TeamPosition} from '../model/team-position';
 import {StandingInfoComponent} from '../standing-info/standing-info.component';
+import {LeagueId} from '../model/league-id';
 
 @Component({
     selector: 'ranking',
@@ -17,7 +18,7 @@ export class RankingPage implements OnInit {
     }
 
     ngOnInit(): void {
-      this.getStanding(2015);
+      this.getStanding(LeagueId.FRANCE1);
     }
 
     async showModal(club: TeamPosition) {
