@@ -12,7 +12,7 @@ import { LeagueId } from '../model/league-id';
     styleUrls: ['./scorers.page.scss'],
 })
 export class ScorersPage implements OnInit {
-
+    teams: Team[];
     scorers: Scorer[];
     constructor(private scorerService: ScorerService, private teamService: TeamsService) {
     }
