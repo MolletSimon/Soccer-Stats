@@ -6,9 +6,12 @@
 
 <ion-content>
   <ion-list>
-    <ion-item *ngFor="let scorer of scorers">
+    <ion-item *ngFor="let scorer of scorers" color="light">
       <ion-label>
-        <img src="{{scorer.team.crestUrl}}" width="50">{{scorer.player.name}}
+        <div class="item">
+          <h3 style="display: contents"><img src="{{scorer.team.crestUrl}}" width="30" height="30">{{scorer.player.name}}</h3>
+          <h3> - {{scorer.numberOfGoals}} <ion-icon name="football-outline"></ion-icon></h3>
+        </div>
       </ion-label>
     </ion-item>
   </ion-list>
