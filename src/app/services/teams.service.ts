@@ -17,7 +17,7 @@ export class TeamsService {
   };
   constructor(private httpClient: HttpClient, private apiService: ApiService) { }
 
-  getLogosRequest(idLeague: number): Observable<TeamList> {
+  getTeams(idLeague: number): Observable<TeamList> {
     return this.httpClient.get<TeamList>(this.apiService.apiUrl + `/competitions/${idLeague}/teams`, this.httpOptions);
   }
 }
