@@ -12,4 +12,5 @@ export interface Match {
     score: Score;
     homeTeam: Team;
     awayTeam: Team;
+    utcDate: Date;
 }

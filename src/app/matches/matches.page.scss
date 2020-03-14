@@ -1,0 +1,16 @@
+ion-content ion-toolbar {
+  --background: translucent;
+}
+
+.match {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.subtitle {
+  display: flex;
+  justify-content: center;
+  font-style: italic;
+  color: black;
+}
