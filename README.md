@@ -1,4 +1,4 @@
-#Soccer Data
+# Soccer Data
 Well I don't know how I'm gonna name this app.
 Basically, I'm a fan of soccer especially ligue 1 in France so I decided to make an ionic app that will display for me the standing, the games, the scorers...
 
