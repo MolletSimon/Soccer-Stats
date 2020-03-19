@@ -52,31 +52,6 @@ export class ScorerInfoComponent implements OnInit {
     }
 
     doTeamWin(match: Match): number {
-        if (this.checkIfHomeTeam(match)) {
-            if (match.score.winner === 'HOME_TEAM') {
-                return Result.WIN;
-            } else if (match.score.winner === 'AWAY_TEAM') {
-                return Result.LOSE;
-            } else {
-                return Result.DRAW;
-            }
-        } else {
-            if (match.score.winner === 'HOME_TEAM') {
-                return Result.LOSE;
-            } else if (match.score.winner === 'AWAY_TEAM') {
-                return Result.WIN;
-            } else {
-                return Result.DRAW;
-            }
-        }
-
-        if (this.checkIfHomeTeam(match) && match.score.winner === 'HOME_TEAM') {
-            return Result.WIN;
-        }
+        return this.matchService.doTeamWin(match, this.scorer.team);
     }
-
-    checkIfHomeTeam(match: Match): boolean {
-        return match.homeTeam.id === this.scorer.team.id;
-    }
-
 }

@@ -16,4 +16,4 @@ import { ExploreContainerComponentModule } from '../explore-container/explore-co
   ],
   declarations: [RankingPage]
 })
-export class Tab1PageModule {}
+export class RankingModule {}
