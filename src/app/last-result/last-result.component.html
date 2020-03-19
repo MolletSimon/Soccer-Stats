@@ -5,24 +5,15 @@
         </ion-buttons>
     </ion-toolbar>
 </ion-header>
-
 <ion-content>
-    <ion-card>
+    <ion-card class="team">
+        <img src="{{club.crestUrl}}" alt="" width="100" class="logo">
         <ion-card-header>
-            <ion-card-title>
-                <div>
-                    <h1 class="title">{{scorer.player.name}} <img src="{{scorer.team.crestUrl}}" alt="" width="61"
-                                                                  height="61"></h1>
-                </div>
-            </ion-card-title>
-            <ion-card-subtitle><h3>Nationalité : {{scorer.player.countryOfBirth}}</h3></ion-card-subtitle>
+            <h1>{{club.name}}</h1>
         </ion-card-header>
-        <ion-card-content>
-            <h4>Nombre de buts : {{scorer.numberOfGoals}} - Position : {{scorer.player.position}}</h4>
-        </ion-card-content>
     </ion-card>
 
-    <ion-card *ngFor="let match of lastFiveMatches">
+    <ion-card *ngFor="let match of lastTwentyGames">
         <ion-card-header *ngIf="doTeamWin(match) === WIN" color="success">
             <ion-card-title *ngIf="match.score.homeTeam && match.score.awayTeam">
                 <div class="score">
@@ -62,6 +53,4 @@
             </ion-card-title>
         </ion-card-header>
     </ion-card>
-
 </ion-content>
-

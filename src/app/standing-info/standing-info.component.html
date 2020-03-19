@@ -10,42 +10,64 @@
     <ion-card class="team">
         <img src="{{team.team.crestUrl}}" alt="" width="100" class="logo">
         <ion-card-header>
-            <h1>{{team.team.name}}</h1>
+            <h1>{{team.team.name}} </h1>
         </ion-card-header>
     </ion-card>
 
     <ion-list>
-        <ion-list-header>Statistiques</ion-list-header>
+        <ion-list-header>
+            <h4>Statistiques</h4>
+        </ion-list-header>
         <ion-item>
-            <ion-label>Matchs joués</ion-label>
+            <div class="label">
+                <ion-label class="label">Matchs joués</ion-label>
+            </div>
+            <ion-button fill="outline" (click)="openLastResult(0)"><i>Derniers résultats</i></ion-button>
             <ion-badge slot="end">{{team.playedGames}}</ion-badge>
         </ion-item>
         <ion-item>
-            <ion-label>Victoires</ion-label>
+            <div class="label">
+                <ion-label class="label">Victoires</ion-label>
+            </div>
+            <ion-button fill="outline" color="success" (click)="openLastResult(3)"><i>Dernières victoires</i></ion-button>
             <ion-badge color="success" slot="end">{{team.won}}</ion-badge>
         </ion-item>
         <ion-item>
-            <ion-label>Nuls</ion-label>
+            <div class="label">
+                <ion-label class="label">Nuls</ion-label>
+            </div>
+            <ion-button fill="outline" color="warning" (click)="openLastResult(2)"><i>Derniers nuls</i></ion-button>
             <ion-badge color="warning" slot="end">{{team.draw}}</ion-badge>
         </ion-item>
         <ion-item>
-            <ion-label>Défaites</ion-label>
+            <div class="label">
+                <ion-label class="label">Défaites</ion-label>
+            </div>
+            <ion-button fill="outline" color="danger" (click)="openLastResult(1)"><i>Dernières défaites</i></ion-button>
             <ion-badge color="danger" slot="end">{{team.lost}}</ion-badge>
         </ion-item>
         <ion-item>
-            <ion-label>Buts pour</ion-label>
+            <div class="label">
+                <ion-label class="label">Buts pour</ion-label>
+            </div>
             <ion-badge color="secondary" slot="end">{{team.goalsFor}}</ion-badge>
         </ion-item>
         <ion-item>
-            <ion-label>Buts contre</ion-label>
+            <div class="label">
+                <ion-label class="label">Buts contre</ion-label>
+            </div>
             <ion-badge color="tertiary" slot="end">{{team.goalsAgainst}}</ion-badge>
         </ion-item>
         <ion-item>
-            <ion-label>Différence but</ion-label>
+            <div class="label">
+                <ion-label class="label">Différence but</ion-label>
+            </div>
             <ion-badge color="light" slot="end">{{team.goalDifference}}</ion-badge>
         </ion-item>
         <ion-item>
-            <ion-label>Points</ion-label>
+            <div class="label">
+                <ion-label>Points</ion-label>
+            </div>
             <ion-badge color="medium" slot="end">{{team.points}}</ion-badge>
         </ion-item>
     </ion-list>

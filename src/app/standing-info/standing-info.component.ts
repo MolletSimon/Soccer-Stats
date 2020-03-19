@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ModalController, NavParams} from '@ionic/angular';
 import {TeamPosition} from '../model/team-position';
+import {LastResultComponent} from '../last-result/last-result.component';
 
 @Component({
     selector: 'app-standing-info',
@@ -22,5 +23,16 @@ export class StandingInfoComponent implements OnInit {
         this.modalCtrl.dismiss({
             dismissed: true,
         });
+    }
+
+    async openLastResult(result: number) {
+        const modal = await this.modalCtrl.create({
+            component: LastResultComponent,
+            componentProps: {
+                'team': this.team.team,
+                'result': result
+            }
+        });
+        await modal.present();
     }
 }

@@ -4,6 +4,9 @@ import {ApiService} from './api.service';
 import {Observable} from 'rxjs';
 import {MatchList} from '../model/match-list';
 import {MatchCompetitionList} from '../model/match-competition-list';
+import {Match} from '../model/match';
+import {Result} from '../model/result';
+import {Team} from '../model/team';
 
 @Injectable({
     providedIn: 'root'
@@ -23,6 +26,7 @@ export class MatchService {
             }
         )
     };
+
     constructor(private httpClient: HttpClient, private apiService: ApiService) {
     }
 
@@ -32,6 +36,30 @@ export class MatchService {
 
     getMatchesByLeague(idLeague: number): Observable<MatchCompetitionList> {
         return this.httpClient.get<MatchCompetitionList>(this.apiService.apiUrl + `/competitions/${idLeague}/matches`, this.httpOptions2);
+    }
+
+    doTeamWin(match: Match, club: Team): number {
+        if (this.checkIfHomeTeam(match, club)) {
+            if (match.score.winner === 'HOME_TEAM') {
+                return Result.WIN;
+            } else if (match.score.winner === 'AWAY_TEAM') {
+                return Result.LOSE;
+            } else {
+                return Result.DRAW;
+            }
+        } else {
+            if (match.score.winner === 'HOME_TEAM') {
+                return Result.LOSE;
+            } else if (match.score.winner === 'AWAY_TEAM') {
+                return Result.WIN;
+            } else {
+                return Result.DRAW;
+            }
+        }
+    }
+
+    checkIfHomeTeam(match: Match, club: Team): boolean {
+        return match.homeTeam.id === club.id;
     }
 
 }

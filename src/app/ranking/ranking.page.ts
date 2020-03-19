@@ -18,7 +18,7 @@ export class RankingPage implements OnInit {
     }
 
     ngOnInit(): void {
-      this.getStanding(LeagueId.FRANCE1);
+        this.getStanding(LeagueId.FRANCE1);
     }
 
     async showModal(club: TeamPosition) {
@@ -31,11 +31,11 @@ export class RankingPage implements OnInit {
         await modal.present();
     }
 
-  getStanding(league: number) {
+    getStanding(league: number) {
         this.standingService.getStanding(league).subscribe(rank => {
                 // @ts-ignore
-              this.standing = rank.standings[0].table;
-              console.log(this.standing);
+                this.standing = rank.standings[0].table;
+                console.log(this.standing);
             },
             (error) => {
                 console.log(error);
