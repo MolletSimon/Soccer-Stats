@@ -19,3 +19,4 @@ ionic serve
 it will open the navigator at localhost:8100, press F12 and then Ctrl + Shift + M
 
 ## License
+[MIT](https://choosealicense.com/licenses/mit/)
