@@ -6,10 +6,11 @@
 
 <ion-content>
   <ion-list>
+    <ion-progress-bar type="indeterminate" *ngIf="!scorers"></ion-progress-bar>
     <ion-item *ngFor="let scorer of scorers" color="light">
-      <ion-label>
+      <ion-label (click)="openModal(scorer)">
         <div class="item">
-          <h3 style="display: contents"><img src="{{scorer.team.crestUrl}}" width="30" height="30">{{scorer.player.name}}</h3>
+          <h3 style="display: contents"><img src="{{scorer.team.crestUrl}}" width="30" height="30" alt="logo">{{scorer.player.name}}</h3>
           <h3> - {{scorer.numberOfGoals}} <ion-icon name="football-outline"></ion-icon></h3>
         </div>
       </ion-label>

@@ -8,22 +8,22 @@ const routes: Routes = [
         component: TabsPage,
         children: [
             {
-                path: 'tab1',
+                path: 'rank',
                 children: [
                     {
                         path: '',
                         loadChildren: () =>
-                            import('../ranking/ranking.module').then(m => m.Tab1PageModule)
+                            import('../ranking/ranking.module').then(m => m.RankingModule)
                     }
                 ]
             },
             {
-                path: 'tab2',
+                path: 'matches',
                 children: [
                     {
                         path: '',
                         loadChildren: () =>
-                            import('../tab2/tab2.module').then(m => m.Tab2PageModule)
+                            import('../matches/matches.module').then(m => m.MatchesModule)
                     }
                 ]
             },
@@ -39,14 +39,14 @@ const routes: Routes = [
             },
             {
                 path: '',
-                redirectTo: '/tabs/tab1',
+                redirectTo: '/tabs/rank',
                 pathMatch: 'full'
             }
         ]
     },
     {
         path: '',
-        redirectTo: '/tabs/tab1',
+        redirectTo: '/tabs/rank',
         pathMatch: 'full'
     }
 ];

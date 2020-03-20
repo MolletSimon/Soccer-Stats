@@ -10,26 +10,32 @@
     <ion-card class="team">
         <img src="{{team.team.crestUrl}}" alt="" width="100" class="logo">
         <ion-card-header>
-            <h1>{{team.team.name}}</h1>
+            <h1>{{team.team.name}} </h1>
         </ion-card-header>
     </ion-card>
 
     <ion-list>
-        <ion-list-header>Statistiques</ion-list-header>
+        <ion-list-header>
+            <h4>Statistiques</h4>
+        </ion-list-header>
         <ion-item>
             <ion-label>Matchs joués</ion-label>
+            <ion-button fill="outline" (click)="openLastResult(0)"><i>Derniers résultats</i></ion-button>
             <ion-badge slot="end">{{team.playedGames}}</ion-badge>
         </ion-item>
         <ion-item>
             <ion-label>Victoires</ion-label>
+            <ion-button fill="outline" color="success" (click)="openLastResult(3)"><i>Dernières victoires</i></ion-button>
             <ion-badge color="success" slot="end">{{team.won}}</ion-badge>
         </ion-item>
         <ion-item>
             <ion-label>Nuls</ion-label>
+            <ion-button fill="outline" color="warning" (click)="openLastResult(2)"><i>Derniers nuls</i></ion-button>
             <ion-badge color="warning" slot="end">{{team.draw}}</ion-badge>
         </ion-item>
         <ion-item>
             <ion-label>Défaites</ion-label>
+            <ion-button fill="outline" color="danger" (click)="openLastResult(1)"><i>Dernières défaites</i></ion-button>
             <ion-badge color="danger" slot="end">{{team.lost}}</ion-badge>
         </ion-item>
         <ion-item>

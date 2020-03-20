@@ -4,6 +4,7 @@ import {StandingService} from '../services/standing.service';
 import {TeamPosition} from '../model/team-position';
 import {StandingInfoComponent} from '../standing-info/standing-info.component';
 import {LeagueId} from '../model/league-id';
+import {LeagueService} from '../services/league.service';
 
 @Component({
     selector: 'ranking',
@@ -18,7 +19,7 @@ export class RankingPage implements OnInit {
     }
 
     ngOnInit(): void {
-      this.getStanding(LeagueId.FRANCE1);
+        this.getStanding(LeagueService.league);
     }
 
     async showModal(club: TeamPosition) {
@@ -31,11 +32,10 @@ export class RankingPage implements OnInit {
         await modal.present();
     }
 
-  getStanding(league: number) {
+    getStanding(league: number) {
         this.standingService.getStanding(league).subscribe(rank => {
                 // @ts-ignore
-              this.standing = rank.standings[0].table;
-              console.log(this.standing);
+                this.standing = rank.standings[0].table;
             },
             (error) => {
                 console.log(error);

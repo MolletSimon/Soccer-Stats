@@ -1,8 +1,5 @@
 <ion-header [translucent]="true">
     <ion-toolbar>
-        <ion-buttons>
-            <ion-icon name="menu-outline"></ion-icon>
-        </ion-buttons>
         <ion-title>
             Classement
         </ion-title>
@@ -10,6 +7,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+    <ion-progress-bar type="indeterminate" *ngIf="!standing"></ion-progress-bar>
     <ng-container *ngIf="standing">
         <ion-list>
             <ng-container *ngFor="let club of standing">
@@ -30,7 +28,7 @@
                     <ion-label class="item">
                         <div class="club">
                             <p>{{club.position}} - </p>
-                            <img src="{{club.team.crestUrl}}" alt="" width="20" style="margin-left: 10px; margin-right: 10px;">
+                            <img src="{{club.team.crestUrl}}" alt="" width="20" class="logo" >
                             <p>{{club.team.name}}</p>
                         </div>
                         <div class="points">
@@ -43,7 +41,7 @@
                     <ion-label class="item">
                         <div class="club">
                             <p>{{club.position}} - </p>
-                            <img src="{{club.team.crestUrl}}" alt="" width="20" style="margin-left: 10px; margin-right: 10px;">
+                            <img src="{{club.team.crestUrl}}" alt="" width="20" class="logo">
                             <p>{{club.team.name}}</p>
                         </div>
                         <div class="points">
