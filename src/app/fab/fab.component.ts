@@ -12,7 +12,7 @@ import {RankingPage} from '../ranking/ranking.page';
     styleUrls: ['./fab.component.scss'],
 })
 export class FabComponent implements OnInit {
-    private league = LeagueService.league;
+    public league = LeagueService.league;
 
     constructor(
         private switchService: SwitchService,

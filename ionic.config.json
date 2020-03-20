@@ -1,5 +1,7 @@
 {
   "name": "Sports Stats",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }
