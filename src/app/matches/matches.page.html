@@ -1,22 +1,25 @@
 <ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Matches
-    </ion-title>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-title>
+            Matches
+        </ion-title>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-card *ngFor="let match of tenNextMatches" color="light">
-    <ion-card-header>
-      <ion-title>
-        <div class="match">
-          <img src="{{match.homeTeam.crestUrl}}" width="20" height="20" alt="logodomicile">
-          {{match.homeTeam.tla}} - {{match.awayTeam.tla}}
-          <img src="{{match.awayTeam.crestUrl}}" width="20" height="20" alt="logovisiteur">
-        </div>
-      </ion-title>
-      <ion-card-subtitle class="subtitle">{{match.group}} - {{match.utcDate | date}}</ion-card-subtitle>
-    </ion-card-header>
-  </ion-card>
+    <ion-progress-bar type="indeterminate" *ngIf="!tenNextMatches"></ion-progress-bar>
+    <ion-card *ngFor="let match of tenNextMatches" color="light">
+        <ion-card-header>
+            <ion-card-title>
+                <div class="match">
+                    <img src="{{match.homeTeam.crestUrl}}" width="30" height="30" alt="logodomicile">
+                    <h3>
+                        {{match.homeTeam.tla}} - {{match.awayTeam.tla}}
+                    </h3>
+                    <img src="{{match.awayTeam.crestUrl}}" width="30" height="30" alt="logovisiteur">
+                </div>
+            </ion-card-title>
+            <ion-card-subtitle class="subtitle">{{match.group}} - {{match.utcDate | date}}</ion-card-subtitle>
+        </ion-card-header>
+    </ion-card>
 </ion-content>

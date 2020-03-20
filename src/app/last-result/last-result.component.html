@@ -13,44 +13,47 @@
         </ion-card-header>
     </ion-card>
 
-    <ion-card *ngFor="let match of lastTwentyGames">
-        <ion-card-header *ngIf="doTeamWin(match) === WIN" color="success">
-            <ion-card-title *ngIf="match.score.homeTeam && match.score.awayTeam">
-                <div class="score">
-                    <img src="{{match.score.homeTeam.crestUrl}}" alt="" width="30" height="30">
-                    <h4>
-                        {{match.score.homeTeam.tla}} {{match.score.fullTime.homeTeam}} -
-                        {{match.score.fullTime.awayTeam}} {{match.score.awayTeam.tla}}
-                    </h4>
-                    <img src="{{match.score.awayTeam.crestUrl}}" alt="" width="30" height="30">
-                </div>
-            </ion-card-title>
-        </ion-card-header>
+    <ion-progress-bar type="indeterminate" *ngIf="!loaded"></ion-progress-bar>
+    <ng-container *ngIf="loaded">
+        <ion-card *ngFor="let match of lastTwentyGames">
+            <ion-card-header *ngIf="doTeamWin(match) === WIN" color="success">
+                <ion-card-title *ngIf="match.score.homeTeam && match.score.awayTeam">
+                    <div class="score">
+                        <img src="{{match.score.homeTeam.crestUrl}}" alt="" width="30" height="30">
+                        <h4>
+                            {{match.score.homeTeam.tla}} {{match.score.fullTime.homeTeam}} -
+                            {{match.score.fullTime.awayTeam}} {{match.score.awayTeam.tla}}
+                        </h4>
+                        <img src="{{match.score.awayTeam.crestUrl}}" alt="" width="30" height="30">
+                    </div>
+                </ion-card-title>
+            </ion-card-header>
 
-        <ion-card-header *ngIf="doTeamWin(match) === DRAW" color="warning">
-            <ion-card-title *ngIf="match.score.homeTeam && match.score.awayTeam">
-                <div class="score">
-                    <img src="{{match.score.homeTeam.crestUrl}}" alt="" width="30" height="30">
-                    <h4>
-                        {{match.score.homeTeam.tla}} {{match.score.fullTime.homeTeam}} -
-                        {{match.score.fullTime.awayTeam}} {{match.score.awayTeam.tla}}
-                    </h4>
-                    <img src="{{match.score.awayTeam.crestUrl}}" alt="" width="30" height="30">
-                </div>
-            </ion-card-title>
-        </ion-card-header>
+            <ion-card-header *ngIf="doTeamWin(match) === DRAW" color="warning">
+                <ion-card-title *ngIf="match.score.homeTeam && match.score.awayTeam">
+                    <div class="score">
+                        <img src="{{match.score.homeTeam.crestUrl}}" alt="" width="30" height="30">
+                        <h4>
+                            {{match.score.homeTeam.tla}} {{match.score.fullTime.homeTeam}} -
+                            {{match.score.fullTime.awayTeam}} {{match.score.awayTeam.tla}}
+                        </h4>
+                        <img src="{{match.score.awayTeam.crestUrl}}" alt="" width="30" height="30">
+                    </div>
+                </ion-card-title>
+            </ion-card-header>
 
-        <ion-card-header *ngIf="doTeamWin(match) === LOSE" color="danger">
-            <ion-card-title *ngIf="match.score.homeTeam && match.score.awayTeam">
-                <div class="score">
-                    <img src="{{match.score.homeTeam.crestUrl}}" alt="" width="30" height="30">
-                    <h4>
-                        {{match.score.homeTeam.tla}} {{match.score.fullTime.homeTeam}} -
-                        {{match.score.fullTime.awayTeam}} {{match.score.awayTeam.tla}}
-                    </h4>
-                    <img src="{{match.score.awayTeam.crestUrl}}" alt="" width="30" height="30">
-                </div>
-            </ion-card-title>
-        </ion-card-header>
-    </ion-card>
+            <ion-card-header *ngIf="doTeamWin(match) === LOSE" color="danger">
+                <ion-card-title *ngIf="match.score.homeTeam && match.score.awayTeam">
+                    <div class="score">
+                        <img src="{{match.score.homeTeam.crestUrl}}" alt="" width="30" height="30">
+                        <h4>
+                            {{match.score.homeTeam.tla}} {{match.score.fullTime.homeTeam}} -
+                            {{match.score.fullTime.awayTeam}} {{match.score.awayTeam.tla}}
+                        </h4>
+                        <img src="{{match.score.awayTeam.crestUrl}}" alt="" width="30" height="30">
+                    </div>
+                </ion-card-title>
+            </ion-card-header>
+        </ion-card>
+    </ng-container>
 </ion-content>

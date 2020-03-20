@@ -13,7 +13,6 @@ export class StandingInfoComponent implements OnInit {
 
     constructor(private modalCtrl: ModalController, private navParams: NavParams) {
         this.team = navParams.get('club');
-        console.log(this.team);
     }
 
     ngOnInit() {

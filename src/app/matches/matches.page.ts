@@ -4,6 +4,7 @@ import {Match} from '../model/match';
 import {Result} from '../model/result';
 import {LeagueId} from '../model/league-id';
 import {TeamsService} from '../services/teams.service';
+import {LeagueService} from '../services/league.service';
 
 @Component({
     selector: 'app-matches',
@@ -18,7 +19,7 @@ export class MatchesPage implements OnInit{
     }
 
     ngOnInit(): void {
-        this.getMatches(LeagueId.FRANCE1);
+        this.getMatches(LeagueService.league);
     }
 
     getMatches(idLeague: number) {
@@ -32,7 +33,6 @@ export class MatchesPage implements OnInit{
                 });
             });
             this.tenNextMatches = this.matches.slice(0, 10);
-            console.log(this.tenNextMatches);
         });
     }
 

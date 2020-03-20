@@ -10,6 +10,7 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+    <ion-progress-bar type="indeterminate" *ngIf="!standing"></ion-progress-bar>
     <ng-container *ngIf="standing">
         <ion-list>
             <ng-container *ngFor="let club of standing">

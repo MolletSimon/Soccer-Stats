@@ -13,4 +13,5 @@ export interface Match {
     homeTeam: Team;
     awayTeam: Team;
     utcDate: Date;
+    status: string;
 }

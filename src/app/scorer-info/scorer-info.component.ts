@@ -7,6 +7,7 @@ import {Match} from '../model/match';
 import {TeamsService} from '../services/teams.service';
 import {LeagueId} from '../model/league-id';
 import {Result} from '../model/result';
+import {LeagueService} from '../services/league.service';
 
 @Component({
     selector: 'app-scorer-info',
@@ -42,7 +43,7 @@ export class ScorerInfoComponent implements OnInit {
     getMatches() {
         this.matchService.getMatches(this.scorer.team.id).subscribe((matches) => {
             this.lastFiveMatches = matches.matches.slice(0, 5);
-            this.teamService.getTeams(LeagueId.FRANCE1).subscribe((teams) => {
+            this.teamService.getTeams(LeagueService.league).subscribe((teams) => {
                 this.lastFiveMatches.forEach(match => {
                     match.score.homeTeam = teams.teams.find(t => t.id === match.homeTeam.id);
                     match.score.awayTeam = teams.teams.find(t => t.id === match.awayTeam.id);

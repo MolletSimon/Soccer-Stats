@@ -1,7 +1,7 @@
 {
   "name": "ranking",
-  "version": "0.0.1",
-  "author": "Ionic Framework",
+  "version": "0.0.5",
+  "author": "Simon Mollet",
   "homepage": "https://ionicframework.com/",
   "scripts": {
     "ng": "ng",
@@ -51,5 +51,5 @@
     "tslint": "~5.15.0",
     "typescript": "~3.4.3"
   },
-  "description": "An Ionic project"
+  "description": "Standing for main leagues of soccer"
 }

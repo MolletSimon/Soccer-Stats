@@ -6,6 +6,7 @@ import {Result} from '../model/result';
 import {LeagueId} from '../model/league-id';
 import {MatchService} from '../services/match.service';
 import {TeamsService} from '../services/teams.service';
+import {LeagueService} from '../services/league.service';
 
 @Component({
     selector: 'app-last-result',
@@ -15,7 +16,7 @@ import {TeamsService} from '../services/teams.service';
 export class LastResultComponent implements OnInit {
     club: Team;
     result: number;
-    done = false;
+    loaded = false;
     lastTwentyGames: Match[];
     WIN = Result.WIN;
     LOSE = Result.LOSE;
@@ -40,7 +41,6 @@ export class LastResultComponent implements OnInit {
     }
 
     getMatchesResult() {
-        console.log(this.lastTwentyGames);
         const lastResult = this.lastTwentyGames;
         if (this.result === 1) {
             this.lastTwentyGames = [];
@@ -64,17 +64,29 @@ export class LastResultComponent implements OnInit {
                 }
             });
         }
-        this.done = true;
     }
 
     getMatches() {
         this.matchService.getMatches(this.club.id).subscribe((matches) => {
-            this.lastTwentyGames = matches.matches.slice(0, 20);
-            this.teamService.getTeams(LeagueId.FRANCE1).subscribe((teams) => {
+            this.lastTwentyGames = matches.matches.reverse().filter(m => m.status === 'FINISHED').slice(0, 40);
+            this.teamService.getTeams(LeagueService.league).subscribe((teams) => {
                 this.lastTwentyGames.forEach(match => {
                     match.score.homeTeam = teams.teams.find(t => t.id === match.homeTeam.id);
                     match.score.awayTeam = teams.teams.find(t => t.id === match.awayTeam.id);
+
+                    if (!match.score.homeTeam) {
+                        this.teamService.getTeam(match.homeTeam.id).subscribe((team) => {
+                            match.score.homeTeam = team;
+                        });
+                    }
+
+                    if (!match.score.awayTeam) {
+                        this.teamService.getTeam(match.awayTeam.id).subscribe((team) => {
+                            match.score.awayTeam = team;
+                        });
+                    }
                 });
+                this.loaded = true;
             });
 
             this.getMatchesResult();

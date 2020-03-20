@@ -7,6 +7,7 @@ import { LeagueCode } from '../model/league-code';
 import { LeagueId } from '../model/league-id';
 import {ModalController} from '@ionic/angular';
 import {ScorerInfoComponent} from '../scorer-info/scorer-info.component';
+import {LeagueService} from '../services/league.service';
 
 @Component({
     selector: 'app-scorers',
@@ -37,9 +38,8 @@ export class ScorersPage implements OnInit {
     getScorers(league: string) {
         this.scorerService.getScorers(league).subscribe(scorers => {
             this.scorers = scorers.scorers;
-            this.teamService.getTeams(LeagueId.FRANCE1).subscribe(teams => {
+            this.teamService.getTeams(LeagueService.league).subscribe(teams => {
                 this.teams = teams.teams;
-                console.log(scorers);
                 this.scorers.forEach(scorer => {
                     scorer.team.crestUrl = this.teams.find(t => t.id === scorer.team.id).crestUrl;
                 });
