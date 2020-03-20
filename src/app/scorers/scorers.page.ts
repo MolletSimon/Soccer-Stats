@@ -21,7 +21,7 @@ export class ScorersPage implements OnInit {
     }
 
     ngOnInit() {
-        this.getScorers(LeagueCode.FRANCE1);
+        this.getScorers(LeagueService.code);
     }
 
     async openModal(scorer: Scorer) {
@@ -36,6 +36,7 @@ export class ScorersPage implements OnInit {
     }
 
     getScorers(league: string) {
+        console.log(LeagueService.code);
         this.scorerService.getScorers(league).subscribe(scorers => {
             this.scorers = scorers.scorers;
             this.teamService.getTeams(LeagueService.league).subscribe(teams => {

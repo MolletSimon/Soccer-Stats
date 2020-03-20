@@ -12,7 +12,7 @@
         <ion-card-header>
             <ion-card-title>
                 <div class="match">
-                    <img src="{{match.homeTeam.crestUrl}}" width="30" height="30" alt="logodomicile">
+                    <img src="{{match.homeTeam.crestUrl}}" width="30" height="30" alt="logo" *ngIf="match.homeTeam.crestUrl">
                     <h3>
                         {{match.homeTeam.tla}} - {{match.awayTeam.tla}}
                     </h3>

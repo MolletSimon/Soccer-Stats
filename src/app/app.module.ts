@@ -12,9 +12,10 @@ import {HttpClient, HttpClientModule, HttpHandler} from '@angular/common/http';
 import {StandingInfoModule} from './standing-info/standing-info.module';
 import {ScorerInfoModule} from './scorer-info/scorer-info.module';
 import {LastResultModule} from './last-result/last-result.module';
+import {FabComponent} from './fab/fab.component';
 
 @NgModule({
-    declarations: [AppComponent],
+    declarations: [AppComponent, FabComponent],
     entryComponents: [],
     imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, HttpClientModule, StandingInfoModule, ScorerInfoModule, LastResultModule],
     providers: [
