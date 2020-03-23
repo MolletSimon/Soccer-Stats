@@ -6,6 +6,11 @@ Basically, I'm a fan of soccer especially ligue 1 in France so I decided to make
 I get the data from an API call football-data.org, it contains a free API Key that allows you to make 10 calls per minutes so this app is not meant to be publish on stores
 
 ## Installation 
+Clone the project with this command
+```bash
+git clone 
+```
+
 Once the project clone, just install the node_modules with the command 
 ```bash
 npm install
