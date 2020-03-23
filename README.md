@@ -8,7 +8,7 @@ I get the data from an API call football-data.org, it contains a free API Key th
 ## Installation 
 Clone the project with this command
 ```bash
-git clone 
+git clone https://github.com/MolletSimon/Soccer-Stats.git
 ```
 
 Once the project clone, just install the node_modules with the command 
