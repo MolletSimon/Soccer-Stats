@@ -1,6 +1,5 @@
 # Soccer Data
-Well I don't know how I'm gonna name this app.
-Basically, I'm a fan of soccer especially ligue 1 in France so I decided to make an ionic app that will display for me the standing, the games, the scorers...
+Maybe the worst app name you've ever seen
 
 ## Data
 I get the data from an API call football-data.org, it contains a free API Key that allows you to make 10 calls per minutes so this app is not meant to be publish on stores
