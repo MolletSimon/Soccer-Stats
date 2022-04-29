@@ -27,8 +27,8 @@ it will open the navigator at localhost:8100, press F12 and then Ctrl + Shift + 
 
 ## Screenshots
 ![Screenshot](https://gitlab.com/S_Mollet/rank-football/-/raw/master/src/assets/images/HomePage.jpg)
-![Screenshot](https://gitlab.com/S_Mollet/rank-football/-/raw/master/src/assets/images/HomePage2.jpg)
 ![Screenshot](https://gitlab.com/S_Mollet/rank-football/-/raw/master/src/assets/images/InfoEquipe.jpg)
+![Screenshot](https://gitlab.com/S_Mollet/rank-football/-/raw/master/src/assets/images/HomePage2.jpg)
 ![Screenshot](https://gitlab.com/S_Mollet/rank-football/-/raw/master/src/assets/images/Games.jpg)
 ![Screenshot](https://gitlab.com/S_Mollet/rank-football/-/raw/master/src/assets/images/LastGames.jpg)
 ![Screenshot](https://gitlab.com/S_Mollet/rank-football/-/raw/master/src/assets/images/Scorers.jpg)
